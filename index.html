@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="libraries/p5/p5.js"></script>
+    <script src="libraries/p5/p5.dom.js"></script>
+    <script src="libraries/p5/p5.sound.js"></script>
+  	<link rel="stylesheet" data-name="vs/editor/editor.main" href="libraries/monaco-editor/min/vs/editor/editor.main.css">
+    <style>
+        body{
+            margin: 0px; padding: 0px;
+        }
+        #code{
+            width: 50%;
+            height: 100vh;
+            float: left;
+        }
+        #canvas{
+            width: 50%;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="buttons">
+        <button id="run">Run</button>
+    </div>
+    <div id="code"></div>
+    <script>var require = { paths: { 'vs': 'libraries/monaco-editor/min/vs' } };</script>
+    <script src="libraries/monaco-editor/min/vs/loader.js"></script>
+    <script src="libraries/monaco-editor/min/vs/editor/editor.main.nls.js"></script>
+    <script src="libraries/monaco-editor/min/vs/editor/editor.main.js"></script>
+    <script>
+        var editor = monaco.editor.create(document.getElementById('code'), {
+            value: [
+                'function x() {',
+                '\tconsole.log("Hello world!");',
+                '}'
+            ].join('\n'),
+            language: 'javascript'
+        });
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>
